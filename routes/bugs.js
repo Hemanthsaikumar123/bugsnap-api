@@ -10,7 +10,7 @@ router.post("/", (req, res) => {
     title,
     description,
     severity,
-    status: "open",
+    status: "OPEN",
   };
 
   bugs.push(bug);
