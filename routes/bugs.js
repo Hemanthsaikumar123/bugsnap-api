@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const bugs = require("../data/bugs");
 
+router.get("/", (req, res) => {
+  res.json(bugs);
+});
+
 router.post("/", (req, res) => {
   const { title, description, severity } = req.body;
 
