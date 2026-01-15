@@ -21,4 +21,18 @@ router.post("/", (req, res) => {
   res.status(201).json(bug);
 });
 
+
+router.patch("/:id/fix", (req, res) => {
+  const id = Number(req.params.id);
+  const bug = bugs.find(b => b.id === id);
+
+  if (!bug) {
+    return res.status(404).json({ error: "Bug not found" });
+  }
+
+  bug.status = "FIXED";
+  res.json(bug);
+});
+
+
 module.exports = router;
