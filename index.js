@@ -1,12 +1,12 @@
-import express from "express";
-const app=express();
+const express = require("express");
+const app = express();
+const bugRoutes = require("./routes/bugs");
+
 app.use(express.json());
+app.use("/bugs", bugRoutes);
 
-app.get("/",(req,res)=>{
-    res.send("Bugsnap API is running!");
+app.get("/", (req, res) => {
+  res.send("BugSnap API is running");
 });
 
-const PORT=process.env.PORT || 3000;
-app.listen(PORT,()=>{
-    console.log(`Server is running on port ${PORT}`);
-});
+app.listen(3000, () => console.log("Server running on 3000"));
